@@ -1,31 +1,76 @@
 ; generic timer
 
-; register that stores delay in milliseconds
-ldi r18, 50
-clr r19
-clr r20
+clr r16
+clr r17
+; registers number
+ldi r27, 4
+
+; the sum of these values correspond to the desired delay
+ldi r20, 14
+ldi r21, 1
+ldi r22, 10
+ldi r23, 0
+
+; store r20 address into Y register
+ldi r28, $14
+clr r29
+
+; store r20 content to r19 
+ld r19, Y+
+
+start:
+; checks if all 4 registers were already analyzed
+cpi r27, 0
+; if yes, exit application
+breq end
+clr r18
+
+; checks if the registers' content equals to zero
+sub r18, r19
+; if yes, jump to the next register content and decrement r27
+breq next
 
 loop:
+cpi r27, 0
+breq end
 
+continue:
+; loop1 generates 16000 cycles
 call loop1
-clr r19
+clr r16
 
-subi r18, 1
-cpi r18, 0
+; decrement r19 
+subi r19, 1
+; if r19 now equals to zero, decrement r27 and get next register value. otherwise, go back to loop 
+cpi r19, 0
 brne loop
-nop
+
+subi r27, 1
+cpi r27, 0
+
+ld r19, Y+
+; if r27 equals to zero, jump to end
+brne start
+
+rjmp end
 
 loop1:
-inc r19
-clr r20
+inc r16
+clr r17
 
 loop2:
-inc r20
-cpi r20, 249
+inc r17
+cpi r17, 249
 brne loop2
 
-cpi r19, 16
+cpi r16, 16
 brne loop1
 ret
 
+next:
+ld r19, Y+
+subi r27, 1
+rjmp start
+
+end:
 nop
