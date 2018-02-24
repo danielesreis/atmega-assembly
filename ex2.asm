@@ -5,5 +5,5 @@ ldi r17, 2
 
 loop:
 mul r16, r17
-
-nop
+mov r16, r0
+rjmp loop
