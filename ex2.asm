@@ -1,4 +1,4 @@
-;storing 0 to memory addresses from 0x100 to 0x120 
+﻿; storing 0 to memory addresses from 0x100 to 0x120 
 
 ;inicializo Y com o endereço 0100
 ldi r28, $0
