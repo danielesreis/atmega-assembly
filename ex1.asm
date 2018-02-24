@@ -1,3 +1,4 @@
+; 500ms blinking interval
 clr r15
 clr r17
 clr r18
