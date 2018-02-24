@@ -2,14 +2,14 @@
 
 clr r16
 clr r17
-; registers quantity
+; registers number
 ldi r27, 4
 
-; the sum of these values correspond to the desired delay
-ldi r20, 14
-ldi r21, 1
-ldi r22, 10
-ldi r23, 0
+; the sum of these values correspond to the desired delay in milliseconds)
+ldi r20, 4
+ldi r21, 12
+ldi r22, 1
+ldi r23, 1
 
 ; store r20 address into Y register
 ldi r28, $14
@@ -25,17 +25,15 @@ cpi r27, 0
 breq end
 clr r18
 
-; checks if the registers' content equals to zero
+; checks if the current register content equals to zero
 sub r18, r19
 ; if yes, jump to the next register content and decrement r27
 breq next
 
 loop:
-cpi r27, 0
-breq end
 
 continue:
-; loop1 generates 16000 cycles
+; loop1 generates 16000 clock cycles
 call loop1
 clr r16
 
