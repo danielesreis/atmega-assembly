@@ -2,7 +2,7 @@
 
 clr r16
 clr r17
-; registers number
+; registers quantity
 ldi r27, 4
 
 ; the sum of these values correspond to the desired delay
