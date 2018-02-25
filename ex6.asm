@@ -1,4 +1,4 @@
-; generic timer
+; generic delay
 
 clr r16
 clr r17
