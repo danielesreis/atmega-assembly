@@ -2,20 +2,20 @@
 
 clr r16
 clr r17
-; registers number
+; registers quantity
 ldi r27, 4
 
-; the sum of these values correspond to the desired delay in milliseconds)
+; the sum of these values correspond to the desired delay in milliseconds
 ldi r20, 4
 ldi r21, 12
 ldi r22, 1
 ldi r23, 1
 
-; store r20 address into Y register
+; stores r20 address into Y register
 ldi r28, $14
 clr r29
 
-; store r20 content to r19 
+; stores r20 content to r19 
 ld r19, Y+
 
 start:
