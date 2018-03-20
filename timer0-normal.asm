@@ -2,17 +2,18 @@ ldi r16, 0x20
 out DDRB, r16
 
 ldi r16, 0x07
-out TIFR0, r16
+sts TIFR0, r16
 
 ldi r16, 0x00
 out PORTB, r16
 out TCNT0, r16
 out TCCR0A, r16
 
-ldi r16, 0x10
+ldi r16, 0x05
 out TCCR0B, r16
 
 ldi r19, 0x01
+ldi r16, 0x20
 
 loop:
 no_overflow: 

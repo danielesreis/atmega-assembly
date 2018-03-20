@@ -13,6 +13,7 @@ ldi r16, 0x05
 out TCCR0B, r16
 
 ldi r19, 0x01
+ldi r16, 0x20
 clr r20
 
 loop:
