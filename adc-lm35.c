@@ -1,13 +1,17 @@
-#include <avr/io.h>
-#include <avr/delay.h>
 #define F_CPU 16000000UL
+#include <avr/io.h>
+#include <util/delay.h>
+
+void serial(char s);
 
 int main(void)
 {
 	uint16_t data;
 	uint8_t datal, datah;
-	float t, temp;
+	float t; 
+	int temp;
 	int d, r;
+	
 	
 	ADMUX = 0b00000000;
 	ADCSRA = 0b10000111;
@@ -32,9 +36,11 @@ int main(void)
 		ADCSRA = ADCSRA | 0x10; //tentar com ADCSRA = 0x10
 		
 		data = (datah << 8) | datal;
-		t = (float)((data*5)/1023);
-		temp = t*100;
-		temp = temp * 10;
+		
+		data = 900;
+		t = ((float)(data*5)/1023);
+		t = t*100;
+		temp = t * 10;
 		
 		d = temp/1000;
 		r = temp%1000;
