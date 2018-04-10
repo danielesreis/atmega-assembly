@@ -23,8 +23,7 @@ int main()
 	while(1) 
 	{
 		for(i = 0; i < 250*mult; i++)			//se o duty cicle estiver crescendo, então i vai até 500, resultando em 1s. 
-												//se estiver diminuindo, vai até 250, para que alcance 500ms
-		{
+		{										//se estiver diminuindo, vai até 250, para que alcance 500ms
 			while((TIFR0 & 0x02) != 0x02) {}
 			TIFR0 = 0x02;
 		}
